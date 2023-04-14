@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_postgres__addresses
+    description: "Contains address info of users"
+    columns:
+      - name: address_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_postgres__events
+    description: "Contains event info such as session_id, user_guid, page_url, created_at, event_type, order_guid, and product_guid"
+    columns:
+      - name: event_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+
+  - name: stg_postgres__order_items
+    description: "Congittains granular order info such as product_guid and quantity"
+    columns:
+      - name: order_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_postgres__orders
+    description: "Contains order info such as order_cost, shipping_cost, order_total, order_status, promo_id, user_guid etc."
+    columns:
+      - name: order_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_postgres__products
+    description: "Contains product info such as name, price, and inventory"
+    columns:
+      - name: product_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_postgres__promos
+    description: "Contains promo_id, discount, promo_status"
+    columns:
+      - name: promo_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  
+  - name: stg_postgres__users
+    description: "Contains personal info about users such as name, email, phone number, address_guid"
+    columns:
+      - name: user_guid
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+  
